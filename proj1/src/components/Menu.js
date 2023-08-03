@@ -12,8 +12,8 @@ function Menu() {
         <a href="#" className="list-group-item list-group-item-action">A fourth link item</a>
         <a className="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
     </div>
-    <div className='mt-2 mb-2'>
-        <a href='https://www.google.com.tr/'>
+    <div className='mt-2 mb-2 d-none d-lg-block'>
+        <a target='_blank' href='https://www.google.com.tr/'>
             <img src='https://cdn.yemek.com/mnresize/1250/833/uploads/2022/08/cikolatali-milkshake-yemekcom.jpg' className='img-fluid'></img>
         </a>
     </div>
