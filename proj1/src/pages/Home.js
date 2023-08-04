@@ -3,6 +3,11 @@ import { arr } from '../datas/product'
 
 function Home() {
 
+    var number = 10
+    console.log( number )
+    number = 'Ali'
+    console.log(number)
+
     return (
         <>
                 <div className="row">
