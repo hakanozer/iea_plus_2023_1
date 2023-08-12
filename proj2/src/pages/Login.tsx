@@ -8,7 +8,12 @@ function Login() {
   // fnc Login
   const fncLogin = (evt: FormEvent) => {
     evt.preventDefault()
-    console.log(email, password, "fncLogin Call")
+    if ( email !== '' && password !== '' ) {
+      console.log(email, password, "fncLogin Call")
+    }else {
+      window.alert("Lütfen tüm alanları doldurunuz!")
+    }
+    
   }
 
   return (
@@ -19,10 +24,10 @@ function Login() {
                 <form onSubmit={fncLogin}>
                   <h2>Admin Login</h2>
                   <div className='mb-3'>
-                    <input onChange={(evt) => setEmail(evt.target.value)} placeholder='E-Mail' type='email' className='form-control' />
+                    <input required onChange={(evt) =>  setEmail(evt.target.value)} placeholder='E-Mail' type='email' className='form-control' />
                   </div>
                   <div className='mb-3'>
-                    <input onChange={(evt) => setPassword(evt.target.value)} placeholder='Password' type='password' className='form-control' />
+                    <input required onChange={(evt) => setPassword(evt.target.value)} placeholder='Password' type='password' className='form-control' />
                   </div>
                   <button className='btn btn-success'>Send</button>
                 </form>
