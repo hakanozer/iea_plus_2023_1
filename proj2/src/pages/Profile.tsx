@@ -1,15 +1,13 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 
-function Dashboard() {
-
+function Profile() {
   return (
-    <>  
+    <>
         <NavBar />
-        <h1>Dashboard</h1>
+        <div>Profile</div>
     </>
   )
-
 }
 
-export default Dashboard
+export default Profile
