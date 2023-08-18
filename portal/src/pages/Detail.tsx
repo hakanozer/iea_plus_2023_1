@@ -18,6 +18,7 @@ function Detail() {
         getSingleProduct(idNum).then( res => {
             const dt = res.data
             setItem(dt)
+            console.log( dt )
         }).catch(err => {
             alert("Service Error")
         })
