@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllProducts } from '../Api'
 import { IProducts } from '../models/IProducts'
+import ProductItem from '../components/ProductItem'
 
 function Home() {
 
@@ -19,12 +20,11 @@ function Home() {
 
   return (
     <>
+      <div className='row'>
        { proObj && proObj.products.map( (item, index) => 
-          <div key={index}>
-            <div>{item.title} - {item.price}</div>
-            <div> {item.images[0]} </div>
-          </div>
+          <ProductItem item={item} key={index} />
        )}
+      </div>
     </>
   )
 }
