@@ -7,6 +7,7 @@ import SimpleImageSlider from "react-simple-image-slider";
 // import images
 import img1 from '../assets/1.jpeg';
 import img2 from '../assets/2.jpeg';
+import NavBar from '../components/NavBar';
 
 function Home() {
 
@@ -30,6 +31,9 @@ function Home() {
 
   return (
     <>
+      <div className='mb-3'>
+        <NavBar/>
+      </div>
       <div className='mb-3' style={{ position: 'relative',}} >
         <SimpleImageSlider
           width={'100%'}
