@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { getSingleProduct } from '../Api'
-import { Product } from '../models/IProducts'
+import { get4RandomProducts, getSingleProduct } from '../Api'
+import { IProducts, Product } from '../models/IProducts'
 import { toast } from 'react-toastify'
 import { Rating } from 'react-simple-star-rating'
 import ImageGallery from "react-image-gallery";
+import ProductItem from '../components/ProductItem'
 
 function Detail() {
 
@@ -45,6 +46,16 @@ function Detail() {
     }
   }, [])
 
+  const [proObj, setProObj] = useState<IProducts>()
+  useEffect(() => {
+    const skip = Math.floor(Math.random() * 96)
+    get4RandomProducts(4, skip).then( res => {
+        const dt = res.data
+        setProObj(dt)
+    } )
+  }, [])
+  
+
   return (
     <>
         { item &&
@@ -80,7 +91,14 @@ function Detail() {
                         }
                     </div>
                 </div>
-                
+
+                <h2>Sizin için seçtiklerimiz</h2>
+                <hr></hr>
+                <div className='row'>
+                { proObj && proObj.products.map( (item, index) => 
+                    <ProductItem item={item} key={index} />
+                )}
+                </div>
             </>
         }
     </>
