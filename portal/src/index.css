@@ -21,9 +21,10 @@
 
 .headerNav .navbar-nav a {
     border: 1px solid #acacac;
-    margin: 5px;
     border-radius: 5px;
     padding: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .headerNav .navbar-nav a:hover {
