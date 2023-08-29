@@ -7,6 +7,7 @@ import { Rating } from 'react-simple-star-rating'
 import ImageGallery from "react-image-gallery";
 import ProductItem from '../components/ProductItem'
 import NavBar from '../components/NavBar'
+import Header from '../components/Header'
 
 function Detail() {
 
@@ -61,6 +62,7 @@ function Detail() {
     <>
         { item &&
             <>
+                <Header />
                 <NavBar />
                 <div className='row'>
                     <div className='col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-3'>

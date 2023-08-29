@@ -5,6 +5,7 @@ import { firstUpper } from '../util'
 import { singleCategoryProducts } from '../Api'
 import { IProducts } from '../models/IProducts'
 import ProductItem from '../components/ProductItem'
+import Header from '../components/Header'
 
 function Category() {
 
@@ -27,6 +28,7 @@ function Category() {
 
   return (
     <>
+        <Header />
         <NavBar/>
         <div className='container-fluid'>
             <h2>{firstUpper(catName!)}</h2>

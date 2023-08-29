@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
 import Category from './pages/Category';
+import Login from './pages/Login';
 
 
 const route =
@@ -19,6 +20,7 @@ const route =
     <Route path='/' element={<Home />} />
     <Route path='/detail/:id' element={<Detail />} />
     <Route path='/category/:catName' element={<Category />} />
+    <Route path='/login' element={<Login />} />
   </Routes>
 </BrowserRouter>
 
