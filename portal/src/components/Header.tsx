@@ -12,6 +12,11 @@ function Header() {
       setCustomer(customer)
     }
   }, [])
+
+  const logout = () => {
+    localStorage.removeItem('customer')
+    window.location.href = '/'
+  }
   
   return (
     <>
@@ -29,8 +34,16 @@ function Header() {
                   <li className="nav-item">
                     <NavLink className="nav-link" to={'/login'}>Login</NavLink>
                   </li>
+                </>
+                }
+
+                { customer && 
+                <>
                   <li className="nav-item">
-                  <a className="nav-link disabled" aria-disabled="true"></a>
+                    <a onClick={logout} className="nav-link" role='button'>Logout</a>
+                  </li>
+                  <li className="nav-item">
+                  <a className="nav-link disabled" aria-disabled="true">{ customer.firstName + ' ' + customer.lastName }</a>
                   </li>
                 </>
                 }

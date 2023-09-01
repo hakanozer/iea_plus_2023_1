@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { get4RandomProducts, getSingleProduct } from '../Api'
+import { addCard, get4RandomProducts, getSingleProduct } from '../Api'
 import { IProducts, Product } from '../models/IProducts'
 import { toast } from 'react-toastify'
 import { Rating } from 'react-simple-star-rating'
@@ -8,6 +8,7 @@ import ImageGallery from "react-image-gallery";
 import ProductItem from '../components/ProductItem'
 import NavBar from '../components/NavBar'
 import Header from '../components/Header'
+import { getCustomer } from '../util'
 
 function Detail() {
 
@@ -58,6 +59,23 @@ function Detail() {
   }, [])
   
 
+  const addBasket = () => {
+    const customer = getCustomer()
+    if ( customer === null ) {
+        navigate('/login')
+    }else {
+        addCard(customer.id, item!.id).then(res => {
+            const dt = res.data
+            if (dt) {
+                toast.success("Add basket success")
+            }
+        }).catch(err => {
+            toast.error("Add Basket Fail")
+        })
+    }
+  }
+
+
   return (
     <>
         { item &&
@@ -82,6 +100,7 @@ function Detail() {
                             <span className="badge text-bg-secondary fs-6 p-2 mt-3 mb-3" style={{marginRight: '1rem'}}> {item.brand}</span>
                             <span className="badge text-bg-secondary fs-6 p-2 mt-3 mb-3" style={{marginRight: '1rem'}}> {item.category}</span>
                         </div>
+                        <button onClick={addBasket} className='btn btn-outline-secondary'><i className="bi bi-cart-plus"></i> Add Basket</button>
                     </div>
                     <div className='col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6'>
                         { images &&

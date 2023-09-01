@@ -4,6 +4,7 @@ import login_img from '../assets/login_img.jpg'
 import { login } from '../Api'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { encrypt } from '../util'
 
 function Login() {
 
@@ -15,7 +16,8 @@ function Login() {
     login(email, password).then( res => {
         const dt = res.data
         if (dt) {
-            const stData = JSON.stringify(dt)
+            var stData = JSON.stringify(dt)
+            stData = encrypt(stData)
             localStorage.setItem('customer', stData)
             window.location.href = '/'
         }
