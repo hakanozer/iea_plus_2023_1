@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { getCustomer } from '../util'
+import { UserModel } from '../models/UserModel'
 
 function Header() {
+
+  const [customer, setCustomer] = useState<UserModel>()
+  useEffect(() => {
+    const customer = getCustomer()
+    if (customer !== null ) {
+      setCustomer(customer)
+    }
+  }, [])
+  
   return (
     <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -12,12 +23,18 @@ function Header() {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <NavLink className="nav-link" to={'/login'}>Login</NavLink>
-                </li>
-                <li className="nav-item">
-                <a className="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
+
+                { !customer && 
+                <>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to={'/login'}>Login</NavLink>
+                  </li>
+                  <li className="nav-item">
+                  <a className="nav-link disabled" aria-disabled="true"></a>
+                  </li>
+                </>
+                }
+
             </ul>
             <form className="d-flex" role="search">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
