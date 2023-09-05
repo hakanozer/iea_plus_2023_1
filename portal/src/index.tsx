@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Detail from './pages/Detail';
 import Category from './pages/Category';
 import Login from './pages/Login';
+import Cart from './pages/Cart';
 
 
 const route =
@@ -21,6 +22,7 @@ const route =
     <Route path='/detail/:id' element={<Detail />} />
     <Route path='/category/:catName' element={<Category />} />
     <Route path='/login' element={<Login />} />
+    <Route path='/cart' element={<Cart />} />
   </Routes>
 </BrowserRouter>
 

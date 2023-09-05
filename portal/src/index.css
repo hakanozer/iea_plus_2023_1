@@ -30,3 +30,11 @@
 .headerNav .navbar-nav a:hover {
     border: 1px solid #454545;
 }
+
+.table-hover>tbody>tr.customRow:hover>* {
+    --bs-table-color-state: none;
+    --bs-table-bg-state: none;
+}
+tr.noBorder {
+    border-style: hidden;
+}

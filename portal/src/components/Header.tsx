@@ -2,14 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { getCustomer } from '../util'
 import { UserModel } from '../models/UserModel'
+import { userCart } from '../Api'
 
 function Header() {
 
   const [customer, setCustomer] = useState<UserModel>()
+  const [totalProduct, setTotalProduct] = useState(0)
   useEffect(() => {
     const customer = getCustomer()
     if (customer !== null ) {
       setCustomer(customer)
+      userCart(customer.id).then( res => {
+        const dt = res.data
+        if (dt) {
+          setTotalProduct( dt.carts[0].totalProducts )
+        }
+      } )
     }
   }, [])
 
@@ -41,6 +49,9 @@ function Header() {
                 <>
                   <li className="nav-item">
                     <a onClick={logout} className="nav-link" role='button'>Logout</a>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to={'/cart'}>Cart ( {totalProduct} )</NavLink>
                   </li>
                   <li className="nav-item">
                   <a className="nav-link disabled" aria-disabled="true">{ customer.firstName + ' ' + customer.lastName }</a>

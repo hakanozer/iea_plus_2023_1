@@ -2,6 +2,7 @@ import axios from 'axios'
 import { IProducts, Product } from './models/IProducts';
 import { UserModel } from './models/UserModel';
 import { CardModel } from './models/CardModel';
+import { UserCartModel } from './models/UserCartModel';
 
 const baseURL = 'https://dummyjson.com/';
 const config = axios.create({
@@ -59,4 +60,9 @@ export const addCard = ( userId: number, id: number ) => {
         ]
     }
     return config.post<CardModel>('carts/add', sendObj)
+}
+
+// user cart
+export const userCart = ( id:number ) => {
+    return config.get<UserCartModel>('carts/user/'+id)
 }
