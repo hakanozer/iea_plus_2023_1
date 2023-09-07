@@ -66,3 +66,13 @@ export const addCard = ( userId: number, id: number ) => {
 export const userCart = ( id:number ) => {
     return config.get<UserCartModel>('carts/user/'+id)
 }
+
+// search
+export const search = (q:string, limitCount: number, skip: number) => {
+    const sendObj = {
+        q: q,
+        limit: limitCount,
+        skip: limitCount * skip
+    }
+    return config.get<IProducts>('products/search', {params: sendObj})
+}

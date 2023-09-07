@@ -12,6 +12,7 @@ import Detail from './pages/Detail';
 import Category from './pages/Category';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
+import Search from './pages/Search';
 
 
 const route =
@@ -23,6 +24,7 @@ const route =
     <Route path='/category/:catName' element={<Category />} />
     <Route path='/login' element={<Login />} />
     <Route path='/cart' element={<Cart />} />
+    <Route path='/search/:q' element={<Search />} />
   </Routes>
 </BrowserRouter>
 
