@@ -6,6 +6,7 @@ import { search } from '../Api'
 import { IProducts } from '../models/IProducts'
 import ProductItem from '../components/ProductItem'
 import load from '../assets/load.gif'
+import {Helmet} from "react-helmet";
 
 function Search() {
 
@@ -48,6 +49,10 @@ function Search() {
 
   return (
     <>
+        <Helmet>
+            <title>Product Search</title>
+            <meta name='description' content={'Product Search'}></meta>
+        </Helmet>
         <Header />
         <NavBar />
         <h2>Search Result: {q} </h2>

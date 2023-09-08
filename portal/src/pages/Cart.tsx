@@ -5,6 +5,7 @@ import { getCustomer } from '../util'
 import { useNavigate } from 'react-router-dom'
 import { userCart } from '../Api'
 import { UserCartModel } from '../models/UserCartModel'
+import {Helmet} from "react-helmet";
 
 function Cart() {
 
@@ -40,6 +41,10 @@ function Cart() {
         <NavBar />
         { cartInfo &&
             <>
+                <Helmet>
+                    <title>E-Commerce - Cards</title>
+                    <meta name='description' content={'E-Commerce - Cards'}></meta>
+                </Helmet>
                 <h2>Product List</h2>
                 <table className="table table-hover">
                 <thead>

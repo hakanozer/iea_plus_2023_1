@@ -5,6 +5,7 @@ import { login } from '../Api'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import { encrypt } from '../util'
+import {Helmet} from "react-helmet";
 
 function Login() {
 
@@ -28,6 +29,10 @@ function Login() {
 
   return (
     <>
+        <Helmet>
+            <title>User Login</title>
+            <meta name='description' content={'E-Commerce - User Login'}></meta>
+        </Helmet>
         <Header />
         <div className='row'>
             <div className='col-sm-6'>
